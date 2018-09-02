@@ -11,7 +11,7 @@ except ImportError:
 
 
 async def fetch(url, spider, session, semaphore):
-    with (await semaphore):
+    async with semaphore:
         try:
             if callable(spider.headers):
                 headers = spider.headers()
